@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<h2>hola mundo</h2>
+<form style="padding: 15px;" th:action="@{/formulario}" th:object="${persona}" method="post">
+
+    <input type="hidden" th:field="*{idpersona}">
+
+    <!-- fragmento de errores -->
+    <div th:replace="fragments/fragment-errors.html:: bodyErrores"></div>
+    <div>
+      <label for="nombre">nombre</label>
+      <div>
+        <input type="text" id="nombre" th:field="*{nombre}">
+      </div>
+        <div class="msg-error" style="color:red;" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+    </div>
+    <div>
+      <label for="apellido">apellido</label>
+      <div>
+        <input type="text" id="apellido" th:field="*{apellido}"/>
+      </div>
+        <div style="color:red;" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+    </div>
+    <div>
+      <label for="email">email</label>
+      <div>
+        <input type="text" id="email" th:field="*{email}"/>
+      </div>
+        <div style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    <div>
+      <label for="telefono">telefono</label>
+      <div>
+        <input type="text" id="telefono" th:field="*{telefono}"/>
+      </div>
+        <div style="color:red;" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+    </div>
+    <div>
+        <label for="pais">pais</label>
+        <div>
+            <select type="text" id="pais" th:field="*{pais}">
+                <option value="">--Selecciona pais--</option>
+                <option th:each="pais : ${paises}" th:text="${pais}" th:value="${pais}"></option>
+            </select>
+        </div>
+        <div style="color:red;" th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
+    </div>
+    <div>
+      <input class="btn btn-success btn-lg my-3" type="submit" th:value="enviar"/>
+    </div>
+</form>
+
+
+
+
+
+</body>
+</html>

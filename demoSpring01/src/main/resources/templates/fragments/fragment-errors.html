@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div th:fragment="bodyErrores" class="container">
+    <div th:if="${#fields.hasErrors('*')}">
+        <div class="alert alert-danger alert-dismissible fade show"
+             th:each="err : ${#fields.errors('*')}" th:text="${err}">
+        </div>
+    </div>
+</div>
+</body>
+</html>

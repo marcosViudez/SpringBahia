@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ResultadosFormularios</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<h2 th:text="${titulo}"></h2>
+
+</br>
+<ul>
+  <li th:text="${persona.nombre}"></li>
+  <li th:text="${persona.apellido}"></li>
+  <li th:text="${persona.email}"></li>
+  <li th:text="${persona.telefono}"></li>
+  <li th:text="${persona.pais}"></li>
+</ul>
+</body>
+</html>
